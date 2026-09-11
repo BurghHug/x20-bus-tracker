@@ -195,8 +195,12 @@
   // "Expected" time straight off that stop's bustimes.org page — we never
   // compute or guess this ourselves, only relay what's already there.
   // Requests are staggered slightly, out of politeness to bustimes.org's
-  // server rather than firing eight requests all at once.
+  // server rather than firing eight requests all at once — and the whole
+  // batch repeats every 2 minutes so the page updates itself while you're
+  // looking at it, rather than only ever showing what it found on the
+  // very first load.
   const cards = Array.from(document.querySelectorAll('.stop-card[data-stop]'));
+  const REFRESH_MS = 120000;
 
   function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
 
@@ -209,16 +213,23 @@
       const data = await res.json();
       if(data.found && data.expected){
         badge.textContent = `Now expected ${data.expected}`;
+      } else {
+        // Clear any previous reading on refresh — if it's no longer live,
+        // don't leave a stale "expected" badge sitting there looking current.
+        badge.textContent = '';
       }
-      // if not found, or expected matches scheduled, badge stays empty —
-      // the plain scheduled time above is still shown either way.
     }catch(err){
       // fails silently — the static scheduled time is still there,
       // this badge is a bonus, never a requirement.
     }
   }
 
-  cards.forEach((card, i) => loadExpected(card, i * 300));
+  function refreshAll(){
+    cards.forEach((card, i) => loadExpected(card, i * 300));
+  }
+
+  refreshAll();
+  setInterval(refreshAll, REFRESH_MS);
 })();
 </script>
 
