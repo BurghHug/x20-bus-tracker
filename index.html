@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0A0D0F">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="X20 Live">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/icon-180.png">
+<link rel="icon" href="/icon-180.png">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>X20 Live</title>
+<style>
+  :root{
+    --bg-deep:#0A0D0F;
+    --bg-panel:#11161A;
+    --line:#1E262B;
+    --accent:#5EEBA5;
+    --text-primary:#E7EEEA;
+    --text-secondary:#8B9A94;
+    --text-tertiary:#556059;
+  }
+  *{box-sizing:border-box;}
+  html,body{
+    margin:0;min-height:100%;background:var(--bg-deep);
+    font-family:'Inter',sans-serif;color:var(--text-primary);
+  }
+  #app{
+    max-width:520px;margin:0 auto;
+    padding:calc(24px + env(safe-area-inset-top)) 18px calc(28px + env(safe-area-inset-bottom));
+  }
+  header{ margin-bottom:22px; }
+  header h1{
+    font-size:21px;font-weight:700;margin:0 0 4px;
+    display:flex;align-items:center;gap:9px;
+  }
+  header .mark{ color:var(--accent); font-size:19px; }
+  header p{ font-size:13.5px;color:var(--text-secondary); margin:0; line-height:1.5; }
+
+  a.stop-card{
+    display:block;
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:18px 18px;
+    margin-bottom:13px;
+    text-decoration:none;
+    color:inherit;
+    transition:border-color .15s, transform .1s;
+  }
+  a.stop-card:active{ transform:scale(0.98); border-color:var(--accent); }
+
+  .stop-row{
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .stop-name{
+    font-size:17px; font-weight:600; color:var(--text-primary);
+  }
+  .stop-time{
+    font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--text-tertiary);
+    margin-top:3px;
+  }
+  .arrow{
+    font-size:20px; color:var(--accent); flex-shrink:0; margin-left:12px;
+  }
+
+  footer{
+    margin-top:10px; text-align:center;
+    font-size:11.5px; color:var(--text-tertiary); line-height:1.6;
+  }
+  footer a{ color:var(--text-secondary); }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <header>
+    <h1><span class="mark">◎</span>X20 Live</h1>
+    <p>One tap straight to each stop's real live board on bustimes.org — no guessing, no scrolling through the full route, just their own data as-is.</p>
+  </header>
+
+  <a class="stop-card" href="https://bustimes.org/stops/4200F170XXX" target="_blank" rel="noopener">
+    <div class="stop-row">
+      <div>
+        <div class="stop-name">Henley High School</div>
+        <div class="stop-time">~15:30 · afternoon pickup</div>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+  </a>
+
+  <a class="stop-card" href="https://bustimes.org/stops/4200F006300" target="_blank" rel="noopener">
+    <div class="stop-row">
+      <div>
+        <div class="stop-name">Bearley, Oak Tree Close</div>
+        <div class="stop-time">~15:40</div>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+  </a>
+
+  <a class="stop-card" href="https://bustimes.org/stops/4200F065902" target="_blank" rel="noopener">
+    <div class="stop-row">
+      <div>
+        <div class="stop-name">Stratford, Maybird Centre</div>
+        <div class="stop-time">~15:56</div>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+  </a>
+
+  <a class="stop-card" href="https://bustimes.org/stops/4200F067200" target="_blank" rel="noopener">
+    <div class="stop-row">
+      <div>
+        <div class="stop-name">Stratford, Wood Street</div>
+        <div class="stop-time">~16:03</div>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+  </a>
+
+  <footer>
+    Live data shown is entirely <a href="https://bustimes.org" target="_blank" rel="noopener">bustimes.org's</a> own —
+    this app computes nothing itself, it just gets you there faster.
+  </footer>
+</div>
+
+</body>
+</html>
