@@ -40,6 +40,12 @@
   header .mark{ color:var(--accent); font-size:19px; }
   header p{ font-size:13.5px;color:var(--text-secondary); margin:0; line-height:1.5; }
 
+  .section-label{
+    font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--text-tertiary); margin:22px 2px 10px;
+  }
+  .section-label:first-of-type{ margin-top:4px; }
+
   a.stop-card{
     display:block;
     background:var(--bg-panel);
@@ -79,14 +85,27 @@
 <div id="app">
   <header>
     <h1><span class="mark">◎</span>X20 Live</h1>
-    <p>One tap straight to each stop's real live board on bustimes.org — no guessing, no scrolling through the full route, just their own data as-is.</p>
   </header>
 
-  <a class="stop-card" href="https://bustimes.org/stops/4200F170XXX" target="_blank" rel="noopener">
+  <h2 class="section-label">Morning — to school</h2>
+
+  <a class="stop-card" href="https://bustimes.org/stops/4200F065201" target="_blank" rel="noopener">
+    <div class="stop-row">
+      <div>
+        <div class="stop-name">Stratford, opp McDonalds</div>
+        <div class="stop-time">~07:37</div>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+  </a>
+
+  <h2 class="section-label">Afternoon — school run home</h2>
+
+  <a class="stop-card" href="https://bustimes.org/stops/4200F027801" target="_blank" rel="noopener">
     <div class="stop-row">
       <div>
         <div class="stop-name">Henley High School</div>
-        <div class="stop-time">~15:30 · afternoon pickup</div>
+        <div class="stop-time">~15:30</div>
       </div>
       <span class="arrow">›</span>
     </div>
